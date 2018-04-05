@@ -114,11 +114,16 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
               <p class="index_Menu">
                 <a href="{% url 'appHome:main_blog' %}">Blog</a>
               </p>
-              <p class="index_Menu">
-                <a href="https://github.com/joshualy">GitHub</a>
-              </p>
-              <p class="index_Menu">
-                <a href="{% static "appHome/Resume_Joshua-Lytle.pdf" %}">Resume</a>
+              <div class="" >
+                <p class="index_Menu" onclick="newwin('https://github.com/joshualy');">
+                  <!-- <a href="https://github.com/joshualy">GitHub</a> -->
+                  GitHub
+                </p>
+              </div>
+
+              <p class="index_Menu" onclick="newwin('{% static "appHome/Resume_Joshua-Lytle.pdf" %}');">
+                <!-- <a href="{% static "appHome/Resume_Joshua-Lytle.pdf" %}">Resume</a> -->
+                Resume
               </p>
             </div>
 

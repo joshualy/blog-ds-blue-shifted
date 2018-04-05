@@ -69,15 +69,27 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
               <div class="dropBox">
                 <div id="abutton" class="dropBtn"> <a href="{% url 'appHome:myseattle' %}">Seattle Bike Data</a> </div>
                 <div id="seattle" class="dropBtn" onclick="newwin('{% url 'appHome:myseattle' %}');">Seattle Bike Data</div>
-                <div id="pseudo" class="dropBtn" onclick="newwin('{% url 'appHome:pseudospectral' %}');">Pseudospectral Method</div>
+                <div id="pseudo" class="dropBtn" onclick="newwin('{% url 'appHome:pseudospectral' %}');">
+                  Pseudospectral Method
+                </div>
               </div>
             </div>
 
             <div class="dropTab">
-              <div class="menuBtn">Personal<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
+              <div class="menuBtn">
+                Personal<i class="fa fa-angle-down" style="margin-left:.15em;"></i>
+              </div>
               <div class="dropBox">
-                <div class="dropBtn" onclick="window.location.assign('{% url 'appHome:introduction' %}');">About</div>
-                <div class="dropBtn">  <a href="{% static "appHome/Resume_Joshua-Lytle.pdf" %}">Resume</a> </div>
+                <div class="dropBtn" onclick="window.location.assign('{% url 'appHome:introduction' %}');">
+                  About
+                </div>
+                <div class="dropBtn" onclick="window.location.assign('{% url 'index' %}');">
+                  Research
+                </div>
+                <div class="dropBtn" onclick="newwin('{% static "appHome/Resume_Joshua-Lytle.pdf" %}');">
+                  <!-- <a href="{% static "appHome/Resume_Joshua-Lytle.pdf" %}">Resume</a>  -->
+                  Resume
+                </div>
               </div>
             </div>
 
