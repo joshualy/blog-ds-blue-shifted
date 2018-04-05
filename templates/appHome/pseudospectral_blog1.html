@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body_block %}
+
+<div class="blog_post">
+
+
+
+
+  <h2 style="text-align:left;">A Pseudospectral Method for Solving BVPs (Part 1)</h2>
+  <!-- <h3 class="post">The Pseudospectral Method</h3> -->
+  <div class="meta_author" style="margin-left:.8em;">
+  March 30, 2018 &nbsp; &bull; &nbsp; Joshua Lytle
+  </div>
+
+  <p>
+    My graduate research at BYU relied on good BVP solvers implemented in Python. So I had the chance to review a lot of what was already implemented in Python, and experimented with several of my own implementations. One approach that I've really enjoyed learning about is the pseudospectral method. This blog post focuses on function/derivative approximation, and will eventually lead to a pseudospectral BVP solver.
+  </p>
+
+  <p> Any smooth function defined on $[-1,1]$ can be expanded as a series of Chebychev polynomials,
+    $$f(x) = \sum_{n=0}^{\infty} a_n T_n(x),$$
+    where the Chebychev polynomials are defined by the recurrence relation
+    \begin{eqnarray}
+      T_0 &=& 1,\\
+      T_1 &=& x, \\
+      T_{n+1} &=& 2xT_n(x) - T_{n-1}(x).
+    \end{eqnarray}
+  </p>
+
+  <p>
+  A function $f$ can also be approximated on $[-1,1]$ using its values on the Gauss-Lobatto grid, which consists of the Chebychev extremum plus endpoints $\{\pm 1\}$. These grid points can be easily calculated in Python with
+  <pre style="margin=0 0; border:0 0; padding:0 0 0 0; ">
+  from __future__ import division
+  import numpy as np
+  from scipy.optimize import root
+  from scipy.interpolate import BarycentricInterpolator
+  import matplotlib.pyplot as plt
+  </pre>
+
+
+  Can be used to find coefficients of truncated Chebychev expansion of $f$! (Well, almost. It's close, because the Gauss-Lobatto grid is much better behaved for polynomial interpolation than an evenly spaced grid. )
+  </p>
+
+  <p>Here ae some key ideas in polynomial interpolation. First, there are many cases where it is convenient to approximate a function $f$ with a sequence if polynomials $p_n$ of increasing order, with $p_n \to f$. That is actually what is done with the pseudospectral method. Second, uniformly spaced interpolation points cause lots of problems! Uniformly spaced nodes cause polynomial interpolation to be ill-conditioned for any interpolation method. Rounding errors can then grow exponentially. Finally, Chebychev points generally provide a good set of interpolation points, because of the way they are distributed throughout the interval $[-1,1]$.  This is fortunate for us, since ....
+  </p>
+
+  <p>
+  These ideas are discussed in more detail in Berrut and Trefethen 2004,  <i>Barycentric Lagrange Interpolation</i>. We use SciPy's <span style="font-family: monospace;">BarycentricInterpolator</span>, which is based on this paper. Barycentric interpolation is a stable algorithm with several interesting properties. It does not compute the coefficients of the interpolating polynomial. Given interpolating data $(x_i,y_i)_i$, the interpolator is initialized in $\mathcal{O}(n^2)$ time and evaluated in $\mathcal{O}(n)$ time. However, the initialization does not depend on the function data $y_i$, and so it is possible to update $y_i$ quickly.
+  </p>
+
+  <p>
+    This next function computes a grid of $N+1$ Chebychev points $\{x_i\}_{i=0}^N$ and the corresponding differentiation $(N+1)\times (N+1)$ matrix $D.$
+
+    For a function $u(x)$ defined on $[-1,1]$ with values $\{U_i\}_{i=0}^N$ at the Chebychev points, the interpolating polynomial $p_N(x)$ converges to $u(x)$ rapidly as $N$ gets large. We can approximate $u'$ by evaluating the polynomial interpolating $DU$ at the Chebychev points.
+
+    The Chebychev points $x = x_0 \ldots, x_N$ are ordered in a rather untraditional manner, from right to left: the first grid point is $x_0 =1$, and the last is $x_N =-1$.  This can trip you up, when setting boundary conditions!
+  </p>
+
+  <p>
+    There is exponential convergence of of spectral coefficients $a_n$ for analytic functions (faster than $n^k$ for every $k$!). Slower convergence occurs when $f$ is not analytic. John Boyd has an excellent summary of these results, and discussions of related numerical methods, in his book <i>Chebychev and Fourier Spectral Methods</i>. Lloyd has an excellent book that discusses interpolation, in <i>Approximation Theory and Approximation Practice</i>.
+  </p>
+
+  <p>
+
+
+
+    <ul>
+      <li> Introduce the derivative matrix $D$. Compare the dense matrix to the much larger, sparse derivative matrices that arise when applying lower order finite difference methods to boundary value problems.
+      </li>
+      <li> Use the derivative matrices introduced earlier to compute the derivatives of a known function. Compare with the analytic derivative. Use a linear interpolant for the finite difference approximation and scipy's Barycentric Interpolant for the pseudospectral approximation.
+      </li>
+    </ul>
+     Compare the numerical solutions of $u'' = -1$ with Dirichlet conditions at the endpoints.
+  </p>
+
+  <h2>The Pseudospectral Method Blog Post #2</h2>
+
+  <ul>
+    <li>Solve a more complicated BVP; two-dimensional. </li>
+    <li>Describe how to verify the accuracy of the solution. Use both a finite difference approximation to compute the residual of the BVP, and the spectral coefficients. </li>
+  </ul>
+
+
+
+  <h2>The Pseudospectral Method Blog Post #3</h2>
+
+  <p> Show off the functionality in the BVP class. Host the code as a package on PyPI, and link to the github repository. Examine how the boundary conditions are specified. Watch the spectral coefficients decay to zero.
+    Examine several BVP problems.
+  <ul>
+    <li>At least one singular BVP. The higher density of gridpoints near the boundary helps resolve the singularity in the solution. </li>
+    <li>Solve the wave profile for solitons. Point out the projective conditions and the matching condition.  Compare with the analytic solution and possibly another numerical solver (bvp6c?).</li>
+  </ul>
+  </p>
+
+
+
+
+  <h2>The Pseudospectral Method Blog Post #4</h2>
+  I need a blog post that introduces bvp6c, the Python version. For the pseudospectral BVP solver, I need to split the domain of the BVP into smaller subdomains - preferably with arbitrary subdivisions.  That can probably be accomplished after coding for an arbitary number of evenly sized subdomains.
+
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

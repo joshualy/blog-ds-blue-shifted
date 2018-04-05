@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Data Science Blue-Shifted</title>
+    <link rel="icon" href="{% static 'DS.png' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" property="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css">
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      // availableFonts: ["STIX"],
+      scale: 80
+                   });
+    </script> -->
+
+
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    // jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": {scale: 10 },
+    "SVG":{scale:60}
+  });
+</script>
+
+<!-- <script>
+    var MathJax = {"HTML-CSS": {scale: 130}};
+</script> -->
+<!-- <script type="text/javascript" src="path-to-MathJax/MathJax.js">
+</script> -->
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'>
+    </script>
+
+
+
+<!-- <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+
+  </head>
+
+
+  <body>
+
+    <div id="fullWrap">
+      <div id="fullHeader">
+        <div class="centerWrap">
+          <h1><i class="fa fa-cubes btn-select" onclick="window.location.assign('{% url 'index' %}');" style="margin-right:.5em;"></i>Data Science <span class='blue-shift'>Blue-Shifted</span> </h1>
+          <div id="menuSection">
+
+            <div class="menuBtn btn-select" onclick="window.location.assign('{% url 'appHome:main_blog' %}');">Blog</div>
+
+            <div class="dropTab">
+              <div class="menuBtn">Notebooks<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
+              <div class="dropBox">
+                <div id="abutton" class="dropBtn"> <a href="{% url 'appHome:myseattle' %}">Seattle Bike Data</a> </div>
+                <div id="seattle" class="dropBtn" onclick="newwin('{% url 'appHome:myseattle' %}');">Seattle Bike Data</div>
+                <div id="pseudo" class="dropBtn" onclick="newwin('{% url 'appHome:pseudospectral' %}');">Pseudospectral Method</div>
+              </div>
+            </div>
+
+            <div class="dropTab">
+              <div class="menuBtn">Personal<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
+              <div class="dropBox">
+                <div class="dropBtn" onclick="window.location.assign('{% url 'appHome:introduction' %}');">About</div>
+                <div class="dropBtn">  <a href="{% static "appHome/Resume_Joshua-Lytle.pdf" %}">Resume</a> </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div id="bodySection">
+        <div class="centerWrap">
+
+          <!-- <div class="imagediv">
+            <img id="imgid" class="trialimg" src="{% static 'penn_waterfall1.jpg' %}">
+            <div>View from the parking lot. Ten minutes from the office by foot.</div>
+            <form class="trialform" id="pictid" action="penn.html" method="get">
+              <select id="selectid" class="trialsel" name="penn-images" onChange="resrc(reval().substring(1));">
+                {% for val in imgs %}
+                <option class="trialobj" value="{% static val.0 %}"> {{ val.1 }} </option>
+                {% endfor %}
+              </select>
+            </form>
+            <div style="clear:both;"></div>
+          </div> -->
+
+
+
+
+          <div class="">
+
+            {% block body_block %}
+
+            {% endblock %}
+
+
+            <!-- <a href="main.pdf" download="Documentation.pdf">solitons.pdf</a> -->
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src={% static "main.js" %}></script>
+</html>

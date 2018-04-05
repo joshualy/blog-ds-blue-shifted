@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body_block %}
+<!-- <style media="screen" type="text/css">
+
+.imagediv{
+max-width: 50%;
+float:left;
+margin: 1em;
+margin-bottom: 0em;
+margin-left:.5em;
+padding-right:8px;
+padding-left:0px;
+padding-bottom:0px;
+}
+.trialform{
+  display:none;
+}
+</style> -->
+<div class="blog_post">
+  <h2>The Classification Task</h2>
+
+  The classification task is to 'learn' a function $f_{\mu}: X \to Y$ by optimizing
+  the parameters $\mu$ with respect to some cost function.
+
+  <strong> Discriminative learning </strong> methods usually model the posterior probability $p(y|x)$ of a class directly, thereby avoiding the modelling of $p(x)$ and consequently $p(y,x) = p(y|x)p(x)$.
+  <br><br>
+  <strong> Generative learning </strong> methods model the distribution of the input data. In particular, Bayes law says that the joint distribution $p(y,x) = p(x|y) p(y)$.
+  A generative learning method will model a conditional input distribution for each class, as well as the a priori class distributions. Then the posterior distribution $p(y|x)$ can be described as
+  \begin{align} p(y|x) &= \frac{p(y,x)}{p(x)},  \\
+  &= \frac{p(y,x)}{\sum_{y_s} p(y_s,x)}.
+  \end{align}
+
+  <h2> A few identities involving the logistic function </h2>
+  The logistic/sigmoid function is given by
+  \begin{align}
+  \sigma(x) &= \frac{1}{1 + e^{-x}},\\
+  &= \frac{e^x}{1+e^x}.
+  \end{align}
+  Its inverse function is the <em> logit </em> function (also called log odds), given by
+  $$ \text{logit}(p) = \log\left(\frac{p}{1-p}\right).$$
+
+
+  $$ 1-\sigma(x) = \sigma(-x)$$
+
+
+  Rescaling the logistic function by
+  $$\sigma_{\beta}(x) = \frac{1}{1 + e^{-\beta x}}
+  $$
+  and taking the limit as $\beta \to \infty$ results in the
+  Heaviside function
+  $$
+  H(x) = \begin{cases}
+  1 \quad x > 0,  \\
+  .5 \quad x = 0, \\
+  0 \quad x < 0 .
+  \end{cases}
+  $$
+
+
+
+  <h2> Logistic Regression </h2>
+  The model for (two class) logistic regression can be described in two different, equivalent, ways. First,
+  by assuming that the log odds, the logit function evalated at $p(c=1|x)$, is linear:
+  $$
+  \log \frac{p(c=1|x)}{p(c=0|x)} = \theta^T x.
+  $$
+
+
+  Since the logit function is the inverse of the logistic function, we can equivalently define logistic regression using
+  $p(c=1|x) = \sigma(\theta^Tx)$.
+
+</div>
+{% endblock %}

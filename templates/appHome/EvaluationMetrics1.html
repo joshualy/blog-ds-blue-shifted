@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body_block %}
+
+
+<div class="blog_post">
+  <h2>Evaluation Metrics for Regression</h2>
+  <p>
+  There are two commonly used metrics for analyzing regression models. The first, mean absolute error (MAE), is a straightforward mean of the (absolute values of) the error $\mathcal{E} = (e_1,\ldots,e_n)^T.$ The absolute values are taken so that positive and negative errors cannot cancel out. The second is root mean squared error (RMSE), which is the square root of the mean of the squared errors. That is,
+  \begin{eqnarray}
+  MAE &= \frac{1}{n}\sum_{i=1}^n |e_i|,\\
+  RMSE &= \sqrt{ \frac{1}{n}\sum_{i=1}^n e_i^2 }.
+  \end{eqnarray}
+  Both of these metrics have the nice property that their units are the same as those of the output variable $y$.
+  </p>
+  <p>
+
+
+    While it is fairly obvious how MAE should be interpreted, RMSE is not as easily interpreted or related to MAE.
+    So here we cover a couple useful inequalities involving these metrics. The first uses
+    Jensen's inequality, which states that for a convex function $\phi$, there is the inequality $\phi(\mathbb{E}(x)) \leq \mathbb{E}(\phi(x)).$ Of course the inequality goes the other way for a concave function. Applying Jensen's inequality with $\phi(x) = \sqrt{x}$, we immediately get
+    $$
+      RMSE \geq MAE.
+    $$
+    (Remember that $|x| = \sqrt{x^2}.$)
+  </p>
+</div>
+
+
+{% endblock %}
