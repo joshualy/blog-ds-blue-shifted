@@ -169,7 +169,12 @@ margin: 1em;
 } */
 
 .trialimg{
-  width: 100%;
+  width: 55%;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:15px;
+
 }
 
 .img_landing{
@@ -225,7 +230,7 @@ select{
 }
 
 .blog_post{
-  width:800px;
+  width:850px;
 }
 
 /* #intro_img{
