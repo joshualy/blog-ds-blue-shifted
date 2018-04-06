@@ -68,22 +68,22 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
           </h1>
           <div id="menuSection">
 
-            <!-- <div class="menuBtn btn-select" onclick="window.location.assign('{% url 'appHome:main_blog' %}');">Blog</div>
+            <!-- <div class="menuBtn btn-select" onclick="window.location.assign('{% url 'ds_blog:list' %}');">Blog</div>
 
             <div class="dropTab">
               <div class="menuBtn">Notebooks<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
               <div class="dropBox">
-                <div id="abutton" class="dropBtn"> <a href="{% url 'appHome:myseattle' %}">Seattle Bike Data</a> </div>
-                <div id="seattle" class="dropBtn" onclick="newwin('{% url 'appHome:myseattle' %}');">Seattle Bike Data</div>
-                <div id="pseudo" class="dropBtn" onclick="newwin('{% url 'appHome:pseudospectral' %}');">Pseudospectral Method</div>
+                <div id="abutton" class="dropBtn"> <a href="{% url 'ds_blog:myseattle' %}">Seattle Bike Data</a> </div>
+                <div id="seattle" class="dropBtn" onclick="newwin('{% url 'ds_blog:myseattle' %}');">Seattle Bike Data</div>
+                <div id="pseudo" class="dropBtn" onclick="newwin('{% url 'ds_blog:pseudospectral' %}');">Pseudospectral Method</div>
               </div>
             </div> -->
 
             <!-- <div class="dropTab">
               <div class="menuBtn">Personal<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
               <div class="dropBox">
-                <div class="dropBtn" onclick="window.location.assign('{% url 'appHome:introduction' %}');">About</div>
-                <div class="dropBtn">  <a href="{% static "appHome/Resume_Joshua-Lytle.pdf" %}">Resume</a> </div>
+                <div class="dropBtn" onclick="window.location.assign('{% url 'ds_blog:introduction' %}');">About</div>
+                <div class="dropBtn">  <a href="{% static "ds_blog/Resume_Joshua-Lytle.pdf" %}">Resume</a> </div>
               </div>
             </div> -->
 
@@ -118,7 +118,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
                 <a href="#">Research</a>
               </p>
               <p class="index_Menu">
-                <a href="{% url 'appHome:main_blog' %}">Blog</a>
+                <a href="{% url 'ds_blog:list' %}">Blog</a>
               </p>
               <div class="" >
                 <p class="index_Menu" onclick="newwin('https://github.com/joshualy');">
@@ -127,8 +127,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
                 </p>
               </div>
 
-              <p class="index_Menu" onclick="newwin('{% static "appHome/Resume_Joshua-Lytle.pdf" %}');">
-                <!-- <a href="{% static "appHome/Resume_Joshua-Lytle.pdf" %}">Resume</a> -->
+              <p class="index_Menu" onclick="newwin('{% static "ds_blog/Resume_Joshua-Lytle.pdf" %}');">
+                <!-- <a href="{% static "ds_blog/Resume_Joshua-Lytle.pdf" %}">Resume</a> -->
                 Resume
               </p>
             </div>

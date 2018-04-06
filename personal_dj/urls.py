@@ -18,12 +18,12 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 
-from appHome import views
+from ds_blog import views
 
 
 
 urlpatterns = [
-    url(r'^ds-blue-shifted/',include('appHome.urls', namespace="appHome")),
+    url(r'^ds-blog/',include('ds_blog.urls', namespace="ds_blog")),
     url(r'^$',views.index,name='index'),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

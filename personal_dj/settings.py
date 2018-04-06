@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'appHome',
+    'ds_blog',
     # 'el_pagination',
     # 'markdown_deux',
     # 'pagedown',
@@ -155,6 +155,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
                     STATIC_DIR,
-                    os.path.join(STATIC_DIR,"appHome"),
-                    os.path.join(os.path.join(STATIC_DIR,"appHome"),"images"),
+                    os.path.join(STATIC_DIR,"ds_blog"),
+                    os.path.join(os.path.join(STATIC_DIR,"ds_blog"),"images"),
 ]

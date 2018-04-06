@@ -68,32 +68,23 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
           </h1>
           <div id="menuSection">
 
-            <div class="menuBtn btn-select" onclick="window.location.assign('{% url 'appHome:main_blog' %}');">Blog</div>
+            <div class="menuBtn btn-select" onclick="window.location.assign('{% url 'ds_blog:list' %}');">Blog</div>
 
-            <!-- <div class="dropTab">
-              <div class="menuBtn">Notebooks<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
-              <div class="dropBox">
-                <div id="abutton" class="dropBtn"> <a href="{% url 'appHome:myseattle' %}">Seattle Bike Data</a> </div>
-                <div id="seattle" class="dropBtn" onclick="newwin('{% url 'appHome:myseattle' %}');">Seattle Bike Data</div>
-                <div id="pseudo" class="dropBtn" onclick="newwin('{% url 'appHome:pseudospectral' %}');">
-                  Pseudospectral Method
-                </div>
-              </div>
-            </div> -->
+
 
             <div class="dropTab">
               <div class="menuBtn">
                 Personal<i class="fa fa-angle-down" style="margin-left:.15em;"></i>
               </div>
               <div class="dropBox">
-                <div class="dropBtn" onclick="window.location.assign('{% url 'appHome:introduction' %}');">
+                <div class="dropBtn" onclick="window.location.assign('{% url 'ds_blog:introduction' %}');">
                   About
                 </div>
                 <div class="dropBtn" onclick="window.location.assign('{% url 'index' %}');">
                   Research
                 </div>
-                <div class="dropBtn" onclick="newwin('{% static "appHome/Resume_Joshua-Lytle.pdf" %}');">
-                  <!-- <a href="{% static "appHome/Resume_Joshua-Lytle.pdf" %}">Resume</a>  -->
+                <div class="dropBtn" onclick="newwin('{% static "ds_blog/Resume_Joshua-Lytle.pdf" %}');">
+                  <!-- <a href="{% static "ds_blog/Resume_Joshua-Lytle.pdf" %}">Resume</a>  -->
                   Resume
                 </div>
               </div>

@@ -1,0 +1,41 @@
+
+  <h2>The Pseudospectral Method Blog Post #2</h2>
+
+  <ul>
+    <li>Solve a more complicated BVP; two-dimensional. </li>
+    <li>Describe how to verify the accuracy of the solution. Use both a finite difference approximation to compute the residual of the BVP, and the spectral coefficients. </li>
+  </ul>
+
+
+
+  <h2>The Pseudospectral Method Blog Post #3</h2>
+
+  <p> Show off the functionality in the BVP class. Host the code as a package on PyPI, and link to the github repository. Examine how the boundary conditions are specified. Watch the spectral coefficients decay to zero.
+    Examine several BVP problems.
+  <ul>
+    <li>At least one singular BVP. The higher density of gridpoints near the boundary helps resolve the singularity in the solution. </li>
+    <li>Solve the wave profile for solitons. Point out the projective conditions and the matching condition.  Compare with the analytic solution and possibly another numerical solver (bvp6c?).</li>
+  </ul>
+  </p>
+
+
+
+
+  <h2>The Pseudospectral Method Blog Post #4</h2>
+  I need a blog post that introduces bvp6c, the Python version. For the pseudospectral BVP solver, I need to split the domain of the BVP into smaller subdomains - preferably with arbitrary subdivisions.  That can probably be accomplished after coding for an arbitary number of evenly sized subdomains.
+
+
+
+
+
+
+  <!-- <div class="dropTab">
+    <div class="menuBtn">Notebooks<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
+    <div class="dropBox">
+      <div id="abutton" class="dropBtn"> <a href="{% url 'appHome:myseattle' %}">Seattle Bike Data</a> </div>
+      <div id="seattle" class="dropBtn" onclick="newwin('{% url 'appHome:myseattle' %}');">Seattle Bike Data</div>
+      <div id="pseudo" class="dropBtn" onclick="newwin('{% url 'appHome:pseudospectral' %}');">
+        Pseudospectral Method
+      </div>
+    </div>
+  </div> -->
