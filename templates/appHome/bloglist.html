@@ -69,13 +69,19 @@ padding-bottom:0px;
     <a href="{% url 'appHome:evaluation_metrics1' %}">
       <h3 class="post">Evaluation Metrics for Regression Models</h3>
       <div class="meta_author">
-      March 30, 2018  &nbsp; &bull; &nbsp; Joshua Lytle
+      April 6, 2018  &nbsp; &bull; &nbsp; Joshua Lytle
       </div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      So I recently wanted to clarify my thinking about two commonly used error metrics for evaluating regression models - mean absolute error (MAE) and root mean squared error (RMSE).
+      These metrics accomplish similar tasks, but each have their own advantages.
+      Let  $\mathcal{E} = (e_1,\ldots,e_n)^T$ be the model errors over the test data $(x_i,y_i)$.
+
+      MAE is a straightforward mean of the absolute value of the errors, $\frac{1}{n}\sum_{i=1}^n |e_i|$.
+
+      RMSE is the square root of the mean of the squared errors, $\sqrt{ \frac{1}{n}\sum_{i=1}^n e_i^2 \,}$.
     </a>
   </article>
 
-  <hr>
+  <!-- <hr> -->
 
 
 </div>

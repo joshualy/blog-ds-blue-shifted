@@ -4,18 +4,50 @@
 
 
 <div class="blog_post">
-  <h2>Evaluation Metrics for Regression</h2>
+
+  <h2 style="text-align:left;">
+    Evaluation Metrics for Regression
+  </h2>
+  <div class="meta_author" style="margin-left:.8em;">
+  April 6, 2018 &nbsp; &bull; &nbsp; Joshua Lytle
+  </div>
+
   <p>
-  There are two commonly used metrics for analyzing regression models. The first, mean absolute error (MAE), is a straightforward mean of the (absolute values of) the error $\mathcal{E} = (e_1,\ldots,e_n)^T.$ The absolute values are taken so that positive and negative errors cannot cancel out. The second is root mean squared error (RMSE), which is the square root of the mean of the squared errors. That is,
-  \begin{eqnarray}
-  MAE &= \frac{1}{n}\sum_{i=1}^n |e_i|,\\
-  RMSE &= \sqrt{ \frac{1}{n}\sum_{i=1}^n e_i^2 }.
-  \end{eqnarray}
-  Both of these metrics have the nice property that their units are the same as those of the output variable $y$.
+  So I recently wanted to clarify my thinking about two commonly used error metrics for evaluating regression models - mean absolute error (MAE) and root mean squared error (RMSE).
+  These metrics accomplish similar tasks, but each have their own advantages.
+  Let  $\mathcal{E} = (e_1,\ldots,e_n)^T$ be the model errors over the test data $(x_i,y_i)$.
+
+  MAE is a straightforward mean of the absolute value of the errors, $\frac{1}{n}\sum_{i=1}^n |e_i|$.
+
+  RMSE is the square root of the mean of the squared errors, $\sqrt{ \frac{1}{n}\sum_{i=1}^n e_i^2 \,}$.
   </p>
+
   <p>
+    Both of these metrics have several nice properties.
+    In both cases, the positive and negative errors cannot cancel out.
+    Also, both metrics have the nice property that their units are the same as those of the output variable $y$.  So how are they different?
+  </p>
+
+  <p>
+    Well, the mean absolute error makes more intuitive sense. I do have to grasp a little more to understand RMSE.  RMSE does have an interesting advantange of its own: when used as a loss function in a Machine Learning model, it is easy to take its derivatives.
+  </p>
+
+  <p>
+    To find more about how these two metrics compare, let's look at several inequalities for norms:
+    $$\|\mathcal{E}\|_2 \leq \|\mathcal{E}\|_1 \leq \sqrt{n}\|\mathcal{E}\|_2.$$
+    Since $MAE = \frac{1}{n}\|\mathcal{E}\|_1$ and $RMSE = \frac{1}{\sqrt{n}}\|\mathcal{E}\|_2$, we can find two inequalities for these metrics:
+    \begin{eqnarray}
+    RMSE &\geq & MAE, \\
+    RMSE &\leq & \sqrt{n}\, MAE.
+    \end{eqnarray}
+  </p>
+
+  <p>
+    So to summarize, root mean squared error is always bigger than mean absolute error. The second inequality above points toward an interesting tendency of root mean squared error: RMSE tends to grow as the size of the dataset grows. Something to be aware of, and not necessarily freak out about. Outliers in the data tend to affect RMSE more. Chai and Draxley (2014) have a great paper for further reading on this topic: <i>RMSE or MAE? - Arguments against avoiding RMSE in the literature</i>.
+  </p>
 
 
+  <!-- <p>
     While it is fairly obvious how MAE should be interpreted, RMSE is not as easily interpreted or related to MAE.
     So here we cover a couple useful inequalities involving these metrics. The first uses
     Jensen's inequality, which states that for a convex function $\phi$, there is the inequality $\phi(\mathbb{E}(x)) \leq \mathbb{E}(\phi(x)).$ Of course the inequality goes the other way for a concave function. Applying Jensen's inequality with $\phi(x) = \sqrt{x}$, we immediately get
@@ -23,7 +55,10 @@
       RMSE \geq MAE.
     $$
     (Remember that $|x| = \sqrt{x^2}.$)
-  </p>
+  </p> -->
+
+
+
 </div>
 
 
