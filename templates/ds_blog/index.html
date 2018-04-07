@@ -68,9 +68,9 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
           </h1>
           <div id="menuSection">
 
-            <!-- <div class="menuBtn btn-select" onclick="window.location.assign('{% url 'ds_blog:list' %}');">Blog</div>
+            <div class="menuBtn btn-select" onclick="window.location.assign('{% url 'ds_blog:list' %}');">Blog</div>
 
-            <div class="dropTab">
+            <!-- <div class="dropTab">
               <div class="menuBtn">Notebooks<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
               <div class="dropBox">
                 <div id="abutton" class="dropBtn"> <a href="{% url 'ds_blog:myseattle' %}">Seattle Bike Data</a> </div>
@@ -79,13 +79,20 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
               </div>
             </div> -->
 
-            <!-- <div class="dropTab">
+            <div class="dropTab">
               <div class="menuBtn">Personal<i class="fa fa-angle-down" style="margin-left:.15em;"></i></div>
               <div class="dropBox">
-                <div class="dropBtn" onclick="window.location.assign('{% url 'ds_blog:introduction' %}');">About</div>
-                <div class="dropBtn">  <a href="{% static "ds_blog/Resume_Joshua-Lytle.pdf" %}">Resume</a> </div>
+                <div class="dropBtn" onclick="window.location.assign('{% url 'ds_blog:introduction' %}');">
+                  About
+                </div>
+                <div class="dropBtn" onclick="window.location.assign('{% url 'index' %}');">
+                  Research
+                </div>
+                <div class="dropBtn">
+                  <a href="{% static "ds_blog/Resume_Joshua-Lytle.pdf" %}">Resume</a>
+                </div>
               </div>
-            </div> -->
+            </div>
 
 
           </div>
@@ -111,8 +118,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 
 
-          <div class="" style="margin-top:120px;">
-<h2 style="text-align:left;margin-bottom:0px;margin-top:100px;"> Joshua Lytle</h2>
+          <div class="" style="margin-top:150px;padding-left:10px;">
+<!-- <h2 style="text-align:left;margin-bottom:0px;margin-top:100px;"> Joshua Lytle</h2> -->
             <div class="index_Menu_div" style="margin-top:100px;padding-top:50px;">
               <p id="index_Menu_main" class="index_Menu" style="background:#eee;">
                 <a href="#">Research</a>
@@ -135,7 +142,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
           </div>
 
-          <div style="width:700px;margin-left:190px;margin-top:60px;padding-right:10px;">
+          <div style="width:700px;margin-left:190px;margin-top:180px;padding-right:10px;">
             <h3>Background</h3>
             <p>
               I graduated from BYU  with a PhD in mathematics (June 2017).
